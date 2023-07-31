@@ -4,10 +4,10 @@ import '../../domain/repository/messages_repository.dart';
 import '../../domain/entity/list_messages_entity.dart';
 import '../data_source/messages_data_source.dart';
 
-class MessageRepositoryImpl implements MessagesRepository {
+class MessagesRepositoryImpl implements MessagesRepository {
   final MessagesDataSource _dataSource;
 
-  const MessageRepositoryImpl({required MessagesDataSource dataSource})
+  const MessagesRepositoryImpl({required MessagesDataSource dataSource})
       : _dataSource = dataSource;
 
   @override
@@ -16,7 +16,7 @@ class MessageRepositoryImpl implements MessagesRepository {
       final response = await _dataSource.getData();
 
       yield* Stream.value(
-        ListMessagesEntity.fromJson(jsonDecode(response.body)),
+        ListMessagesEntity.fromJson({'messages': jsonDecode(response.body)}),
       );
     } catch (_) {
       // TODO: improve error handling

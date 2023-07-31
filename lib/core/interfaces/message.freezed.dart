@@ -20,8 +20,8 @@ Message _$MessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Message {
-  String get id => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  int get userId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
 
@@ -35,7 +35,7 @@ abstract class $MessageCopyWith<$Res> {
   factory $MessageCopyWith(Message value, $Res Function(Message) then) =
       _$MessageCopyWithImpl<$Res, Message>;
   @useResult
-  $Res call({String id, String userId, String title, String body});
+  $Res call({int id, int userId, String title, String body});
 }
 
 /// @nodoc
@@ -60,11 +60,11 @@ class _$MessageCopyWithImpl<$Res, $Val extends Message>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -84,7 +84,7 @@ abstract class _$$_MessageCopyWith<$Res> implements $MessageCopyWith<$Res> {
       __$$_MessageCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String userId, String title, String body});
+  $Res call({int id, int userId, String title, String body});
 }
 
 /// @nodoc
@@ -106,11 +106,11 @@ class __$$_MessageCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -136,9 +136,9 @@ class _$_Message implements _Message {
       _$$_MessageFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
-  final String userId;
+  final int userId;
   @override
   final String title;
   @override
@@ -180,17 +180,17 @@ class _$_Message implements _Message {
 
 abstract class _Message implements Message {
   const factory _Message(
-      {required final String id,
-      required final String userId,
+      {required final int id,
+      required final int userId,
       required final String title,
       required final String body}) = _$_Message;
 
   factory _Message.fromJson(Map<String, dynamic> json) = _$_Message.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
-  String get userId;
+  int get userId;
   @override
   String get title;
   @override

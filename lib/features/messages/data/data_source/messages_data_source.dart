@@ -8,6 +8,6 @@ class MessagesDataSourceImpl implements MessagesDataSource {
   @override
   Future<http.Response> getData() {
     // TODO: move this string to a secret place or at least to constant
-    return http.get(Uri.https('https://jsonplaceholder.typicode.com/posts'));
+    return http.get(Uri.https('jsonplaceholder.typicode.com', 'posts'));
   }
 }
