@@ -8,7 +8,7 @@ part 'list_messages_entity.g.dart';
 @freezed
 class ListMessagesEntity with _$ListMessagesEntity {
   const factory ListMessagesEntity({
-    required List<MessageEntity> messages,
+    required List<Message> messages,
   }) = _ListMessagesEntity;
 
   factory ListMessagesEntity.fromJson(Map<String, Object?> json) =>

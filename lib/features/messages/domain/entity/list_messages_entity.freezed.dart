@@ -20,7 +20,7 @@ ListMessagesEntity _$ListMessagesEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListMessagesEntity {
-  List<MessageEntity> get messages => throw _privateConstructorUsedError;
+  List<Message> get messages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $ListMessagesEntityCopyWith<$Res> {
           ListMessagesEntity value, $Res Function(ListMessagesEntity) then) =
       _$ListMessagesEntityCopyWithImpl<$Res, ListMessagesEntity>;
   @useResult
-  $Res call({List<MessageEntity> messages});
+  $Res call({List<Message> messages});
 }
 
 /// @nodoc
@@ -56,7 +56,7 @@ class _$ListMessagesEntityCopyWithImpl<$Res, $Val extends ListMessagesEntity>
       messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<MessageEntity>,
+              as List<Message>,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$_ListMessagesEntityCopyWith<$Res>
       __$$_ListMessagesEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MessageEntity> messages});
+  $Res call({List<Message> messages});
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class __$$_ListMessagesEntityCopyWithImpl<$Res>
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
-              as List<MessageEntity>,
+              as List<Message>,
     ));
   }
 }
@@ -97,15 +97,15 @@ class __$$_ListMessagesEntityCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ListMessagesEntity implements _ListMessagesEntity {
-  const _$_ListMessagesEntity({required final List<MessageEntity> messages})
+  const _$_ListMessagesEntity({required final List<Message> messages})
       : _messages = messages;
 
   factory _$_ListMessagesEntity.fromJson(Map<String, dynamic> json) =>
       _$$_ListMessagesEntityFromJson(json);
 
-  final List<MessageEntity> _messages;
+  final List<Message> _messages;
   @override
-  List<MessageEntity> get messages {
+  List<Message> get messages {
     if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
@@ -145,14 +145,14 @@ class _$_ListMessagesEntity implements _ListMessagesEntity {
 }
 
 abstract class _ListMessagesEntity implements ListMessagesEntity {
-  const factory _ListMessagesEntity(
-      {required final List<MessageEntity> messages}) = _$_ListMessagesEntity;
+  const factory _ListMessagesEntity({required final List<Message> messages}) =
+      _$_ListMessagesEntity;
 
   factory _ListMessagesEntity.fromJson(Map<String, dynamic> json) =
       _$_ListMessagesEntity.fromJson;
 
   @override
-  List<MessageEntity> get messages;
+  List<Message> get messages;
   @override
   @JsonKey(ignore: true)
   _$$_ListMessagesEntityCopyWith<_$_ListMessagesEntity> get copyWith =>

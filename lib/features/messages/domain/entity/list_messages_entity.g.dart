@@ -10,7 +10,7 @@ _$_ListMessagesEntity _$$_ListMessagesEntityFromJson(
         Map<String, dynamic> json) =>
     _$_ListMessagesEntity(
       messages: (json['messages'] as List<dynamic>)
-          .map((e) => MessageEntity.fromJson(e as Map<String, dynamic>))
+          .map((e) => Message.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
