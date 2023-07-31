@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/core.dart';
+import '../widgets/widgets.dart';
+import '../bloc/messages_bloc.dart';
+import '../../data/data.dart';
+import '../../domain/use_case/get_messages.dart';
 
 class MessagesScreen extends StatelessWidget {
   const MessagesScreen({super.key});
@@ -9,19 +12,31 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Messages')),
-      body: Center(
-        child: Column(
-          children: [
-            const Text('Messages screen'),
-            ElevatedButton(
-              onPressed: () => context.go(
-                '/$messageScreenName',
-                extra: {'message_id': '1425435'},
+      appBar: AppBar(title: const Center(child: Text('Messages'))),
+      body: BlocProvider<MessagesBloc>(
+        create: (context) {
+          final messagesBloc = MessagesBloc(
+            getMessagesUseCase: GetMessages(
+              repository: MessagesRepositoryImpl(
+                dataSource: MessagesDataSourceImpl(),
               ),
-              child: const Text('go'),
-            )
-          ],
+            ),
+          );
+
+          messagesBloc.add(const MessagesEvent.loadData());
+
+          return messagesBloc;
+        },
+        child: Center(
+          child: BlocBuilder<MessagesBloc, MessagesState>(
+            builder: (context, state) {
+              return state.map(
+                lading: (_) => const CircularProgressIndicator(),
+                success: (state) => SuccessState(messages: state.messages),
+                error: (state) => Text(state.error),
+              );
+            },
+          ),
         ),
       ),
     );
