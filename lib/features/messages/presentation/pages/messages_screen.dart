@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:messages_task/core/core.dart';
 
 import '../widgets/widgets.dart';
 import '../bloc/messages_bloc.dart';
@@ -33,7 +34,15 @@ class MessagesScreen extends StatelessWidget {
               return state.map(
                 lading: (_) => const CircularProgressIndicator(),
                 success: (state) => SuccessState(messages: state.messages),
-                error: (state) => Text(state.error),
+                error: (state) {
+                  WidgetsBinding.instance.addPostFrameCallback(
+                    (_) => ScaffoldMessenger.of(context).showSnackBar(
+                      errorSnackBar(state.error),
+                    ),
+                  );
+
+                  return const LoadMessages();
+                },
               );
             },
           ),
