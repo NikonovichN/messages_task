@@ -18,9 +18,8 @@ class MessagesRepositoryImpl implements MessagesRepository {
       yield* Stream.value(
         ListMessagesEntity.fromJson({'messages': jsonDecode(response.body)}),
       );
-    } catch (_) {
-      // TODO: improve error handling
-      yield* Stream.error('Something went wrong!');
+    } catch (error) {
+      yield* Stream.error(error);
     }
   }
 }
