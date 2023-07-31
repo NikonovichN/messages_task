@@ -12,7 +12,7 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Center(child: Text('Messages'))),
+      appBar: AppBar(centerTitle: true, title: const Text('Messages')),
       body: BlocProvider<MessagesBloc>(
         create: (context) {
           final messagesBloc = MessagesBloc(

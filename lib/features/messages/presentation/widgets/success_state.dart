@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widgets/message.dart';
 import '../../../../core/core.dart';
@@ -14,9 +15,12 @@ class SuccessState extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       children: messages
           .map(
-            (message) => MessageWidget(
-              title: message.title,
-              body: message.body,
+            (message) => GestureDetector(
+              onTap: () => context.go('/$messageScreen', extra: message),
+              child: MessageWidget(
+                title: message.title,
+                body: message.body,
+              ),
             ),
           )
           .toList(),

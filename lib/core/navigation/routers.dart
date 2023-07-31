@@ -5,14 +5,11 @@ import '../../features/features.dart';
 
 final routers = [
   GoRoute(
-    path: '/$messagesScreenName',
+    path: '/$messagesScreen',
     builder: (context, state) => const MessagesScreen(),
   ),
   GoRoute(
-    path: '/$messageScreenName',
-    builder: (context, state) {
-      final id = (state.extra as Map)['message_id'];
-      return MessageScreen(id: id);
-    },
+    path: '/$messageScreen',
+    builder: (context, state) => MessageScreen(message: state.extra as Message),
   ),
 ];
