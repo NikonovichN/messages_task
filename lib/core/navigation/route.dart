@@ -4,6 +4,6 @@ import 'constants.dart';
 import 'routers.dart';
 
 final router = GoRouter(
-  initialLocation: '/$messagesScreenName',
+  initialLocation: '/$messagesScreen',
   routes: routers,
 );

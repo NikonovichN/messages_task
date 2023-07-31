@@ -1,2 +1,2 @@
-const messagesScreenName = 'messagesScreen';
-const messageScreenName = 'messageScreen';
+const messagesScreen = 'messagesScreen';
+const messageScreen = 'messageScreen';

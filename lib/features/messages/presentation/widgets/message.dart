@@ -32,7 +32,7 @@ class MessageWidget extends StatelessWidget {
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Text(body.replaceAll('\n', '')),
+          Text('${body.replaceAll('\n', '').substring(0, 80)}...'),
         ],
       ),
     );
